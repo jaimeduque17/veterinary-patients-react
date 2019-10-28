@@ -20,6 +20,20 @@ class App extends Component {
 		})
 	}
 
+	// Delete the appointment of the state
+	deleteAppointment = id => {
+		// Take a copy of the state
+		const currentAppointment = [...this.state.appointments];
+
+		// Use filter to take out the item @id from the array
+		const appointments = currentAppointment.filter(appointment => appointment.id !== id)
+
+		// Update the state
+		this.setState({
+			appointments
+		})
+	}
+
 	render() {
 		return (
 			<div className="container">
@@ -35,6 +49,7 @@ class App extends Component {
 					<div className="mt-5 col-md-10 mx-auto">
 						<AppointmentList
 							appointments={this.state.appointments}
+							deleteAppointment={this.deleteAppointment}
 						/>
 					</div>
 				</div>
