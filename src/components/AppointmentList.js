@@ -1,5 +1,6 @@
 import React from 'react';
 import Appointment from './Appointment';
+import PropTypes from 'prop-types';
 
 const AppointmentList = ({ appointments, deleteAppointment }) => (
     <div className="card mt-2 py-5">
@@ -17,5 +18,10 @@ const AppointmentList = ({ appointments, deleteAppointment }) => (
         </div>
     </div>
 );
+
+AppointmentList.propTypes = {
+    appointments: PropTypes.array.isRequired,
+    deleteAppointment: PropTypes.func.isRequired
+}
 
 export default AppointmentList;
